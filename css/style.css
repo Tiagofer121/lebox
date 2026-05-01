@@ -8,7 +8,7 @@ body {
 }
 .imagen-fondo {
     width: 100%;
-    height: 50vh;
+    height: 40vh;
     background: url(https://image.tmdb.org/t/p/original/7ed0v16eQyRLwVnVi1tCFSlMc9J.jpg);
     background-size: cover;
 }
@@ -16,7 +16,7 @@ body {
 .degradado {
     position: absolute;
     width: 100%;
-    height: 50vh;
+    height: 40vh;
     background: linear-gradient(
 360deg, black, transparent);
 }
@@ -25,6 +25,7 @@ body {
     margin: 100px 0px 0px 0px;
     display: flex;
     justify-content: center;
+    height: 60vh;
 }
 
 .card {
@@ -39,7 +40,7 @@ body {
 
 input#emailLogin {
     width: 100%;
-    height: 45px;
+    height: 40px;
     border-radius: 20px;
     padding: 20px;
     border: none;
@@ -51,7 +52,7 @@ input#emailLogin {
 
 input#passwordLogin {
     width: 100%;
-    height: 45px;
+    height: 40px;
     border-radius: 20px;
     padding: 20px;
     border: none;
@@ -67,13 +68,13 @@ div#loginCard h2, div#registerCard h2 {
 
 button {
     width: 250px;
-    height: 55px;
+    height: 50px;
     border: none;
     background: #f95300;
     border-radius: 43px;
     font-size: 1.4rem;
     font-family: sans-serif;
-    margin: 0px 0px -20px;
+    margin: 0px 0px 0px;
 }
 
 p {
@@ -81,7 +82,7 @@ p {
 }
 input#emailRegister {
     width: 100%;
-    height: 45px;
+    height: 40px;
     border-radius: 20px;
     padding: 20px;
     border: none;
@@ -93,7 +94,7 @@ input#emailRegister {
 
 input#passwordRegister {
     width: 100%;
-    height: 45px;
+    height: 40px;
     border-radius: 20px;
     padding: 20px;
     border: none;
@@ -105,7 +106,7 @@ input#passwordRegister {
 
 input#confirmRegister {
     width: 100%;
-    height: 45px;
+    height: 40px;
     border-radius: 20px;
     padding: 20px;
     border: none;
