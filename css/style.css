@@ -4,37 +4,79 @@
     box-sizing: border-box;
 }
 body {
-  background: #0f0f0f;
-  color: white;
-  font-family: Arial;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background: black;
+}
+.imagen-fondo {
+    width: 100%;
+    height: 60vh;
+    background: url(https://image.tmdb.org/t/p/original/7ed0v16eQyRLwVnVi1tCFSlMc9J.jpg);
+    background-size: cover;
+}
+
+.degradado {
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(
+360deg, black, transparent);
+}
+.container {
+    /* background: blue; */
+    margin: 100px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 .card {
-  background: #1a1a1a;
-  padding: 25px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 300px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
 
-input {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+input#emailLogin {
+    width: 100%;
+    height: 45px;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+    -webkit-text-stroke: medium;
+    background: #121111;
+    color: white;
+    letter-spacing: 1px;
+}
+
+input#passwordLogin {
+    width: 100%;
+    height: 45px;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+    -webkit-text-stroke: medium;
+    background: #121111;
+    color: white;
+    letter-spacing: 1px;
+}
+div#loginCard h2 {
+    color: white;
+    font-family: sans-serif;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background: #ff3c3c;
-  color: white;
-  cursor: pointer;
+    width: 250px;
+    height: 55px;
+    border: none;
+    background: #f95300;
+    border-radius: 43px;
+    font-size: 1.4rem;
+    font-family: sans-serif;
+    margin: 0px 0px -20px;
+}
+
+p {
+    color: white;
 }
