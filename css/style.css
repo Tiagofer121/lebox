@@ -75,6 +75,7 @@ button {
     font-size: 1.4rem;
     font-family: sans-serif;
     margin: 0px 0px 0px;
+    min-height:50px;
 }
 
 p {
