@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     outline:none;
+    transition: 300ms;
+
 }
 body {
   background: black;
