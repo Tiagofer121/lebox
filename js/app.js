@@ -17,12 +17,12 @@ const auth = getAuth(app);
 // 🔁 CAMBIO DE CARDS (LO QUE YA TENÍAS)
 window.showRegister = function() {
   document.getElementById("loginCard").style.display = "none";
-  document.getElementById("registerCard").style.display = "block";
+  document.getElementById("registerCard").style.display = "flex";
 };
 
 window.showLogin = function() {
   document.getElementById("registerCard").style.display = "none";
-  document.getElementById("loginCard").style.display = "block";
+  document.getElementById("loginCard").style.display = "flex";
 };
 
 // 🔐 REGISTRO
