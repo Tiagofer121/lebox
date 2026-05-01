@@ -8,7 +8,7 @@ body {
 }
 .imagen-fondo {
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     background: url(https://image.tmdb.org/t/p/original/7ed0v16eQyRLwVnVi1tCFSlMc9J.jpg);
     background-size: cover;
 }
@@ -16,7 +16,7 @@ body {
 .degradado {
     position: absolute;
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     background: linear-gradient(
 360deg, black, transparent);
 }
@@ -31,7 +31,6 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 300px;
     padding: 10px;
     align-items: center;
     justify-content: center;
@@ -84,49 +83,4 @@ p {
   .container {
     margin: 0px;
   }
-}    justify-content: center;
-    gap: 30px;
-}
-
-input#emailLogin {
-    width: 100%;
-    height: 45px;
-    border-radius: 20px;
-    padding: 20px;
-    border: none;
-    -webkit-text-stroke: medium;
-    background: #121111;
-    color: white;
-    letter-spacing: 1px;
-}
-
-input#passwordLogin {
-    width: 100%;
-    height: 45px;
-    border-radius: 20px;
-    padding: 20px;
-    border: none;
-    -webkit-text-stroke: medium;
-    background: #121111;
-    color: white;
-    letter-spacing: 1px;
-}
-div#loginCard h2 {
-    color: white;
-    font-family: sans-serif;
-}
-
-button {
-    width: 250px;
-    height: 55px;
-    border: none;
-    background: #f95300;
-    border-radius: 43px;
-    font-size: 1.4rem;
-    font-family: sans-serif;
-    margin: 0px 0px -20px;
-}
-
-p {
-    color: white;
 }
