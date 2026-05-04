@@ -40,7 +40,7 @@ window.register = function() {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
-      window.location.href = "home.html";
+      window.location.href = "../inicio.html";
     })
     .catch(err => alert(err.message));
 };
