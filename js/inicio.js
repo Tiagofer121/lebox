@@ -3,15 +3,13 @@
 const API_KEY = "446e4bd3b832f95dbc4a0839a483513c";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// 🎯 CONFIGURABLE
-const TOTAL_PELICULAS = 5; // 👈 CAMBIÁS ESTO
-const INTERVALO = 4000; // ms (4 segundos)
+const TOTAL_PELICULAS = 5;
+const INTERVALO = 4000;
 
-// 🧠 VARIABLES
 let peliculas = [];
 let index = 0;
 
-// 🎬 CARGAR POPULARES
+// 🎬 CARGAR
 async function cargarPeliculas() {
   const res = await fetch(
     `${BASE_URL}/movie/popular?api_key=${API_KEY}`
@@ -21,31 +19,54 @@ async function cargarPeliculas() {
 
   peliculas = data.results.slice(0, TOTAL_PELICULAS);
 
-  mostrarBanner();
-  iniciarCarrusel();
+  renderSlides();
+  iniciarSlider();
 }
 
-// 🖼️ MOSTRAR BANNER
-function mostrarBanner() {
-  const movie = peliculas[index];
+// 🧱 CREAR SLIDES
+function renderSlides() {
+  const track = document.getElementById("slider-track");
 
-  const banner = document.getElementById("banner");
+  peliculas.forEach(movie => {
+    const slide = document.createElement("div");
+    slide.classList.add("slide");
+
+    const img = document.createElement("img");
+    img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+
+    slide.appendChild(img);
+    track.appendChild(slide);
+  });
+
+  // 👇 mostrar primer título
+  document.getElementById("banner-title").textContent =
+    peliculas[0].title;
+}
+
+// 🔄 SLIDE AUTOMÁTICO
+function iniciarSlider() {
+  const track = document.getElementById("slider-track");
   const title = document.getElementById("banner-title");
 
-banner.style.backgroundImage =
-  `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
-
-  title.textContent = movie.title;
-}
-
-// 🔄 CAMBIO AUTOMÁTICO
-function iniciarCarrusel() {
   setInterval(() => {
     index++;
 
     if (index >= peliculas.length) {
       index = 0;
     }
+
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    // 🔥 actualizar título
+    title.textContent = peliculas[index].title;
+
+  }, INTERVALO);
+}
+
+// 🚀 INIT
+document.addEventListener("DOMContentLoaded", () => {
+  cargarPeliculas();
+});    }
 
     mostrarBanner();
   }, INTERVALO);
