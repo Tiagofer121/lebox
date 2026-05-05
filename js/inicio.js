@@ -11,11 +11,11 @@ import {
   getFirestore, 
   collection, 
   addDoc, 
-  getDocs, 
   doc, 
   getDoc, 
   query, 
-  orderBy 
+  orderBy, 
+  onSnapshot 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // 🔥 CONFIG (PONÉ LA TUYA)
@@ -33,10 +33,10 @@ const db = getFirestore(app);
 // 🧠 USERNAME GLOBAL
 let username = "";
 
-// 🔐 PROTEGER + CARGAR USERNAME
+// 🔐 AUTH + USERNAME
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
     return;
   }
 
@@ -47,13 +47,13 @@ onAuthStateChanged(auth, async (user) => {
     username = docSnap.data().username;
   }
 
-  cargarPosts();
+  startFeed();
 });
 
 // 🚪 LOGOUT
 window.logout = function() {
   signOut(auth).then(() => {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   });
 };
 
@@ -71,34 +71,33 @@ window.crearPost = async function() {
   });
 
   document.getElementById("postText").value = "";
-
-  cargarPosts();
 };
 
-// 📱 CARGAR POSTS (ORDENADOS)
-async function cargarPosts() {
+// 📡 FEED EN TIEMPO REAL
+function startFeed() {
   const q = query(
     collection(db, "posts"),
     orderBy("fecha", "desc")
   );
 
-  const querySnapshot = await getDocs(q);
-  const feed = document.getElementById("feed");
+  onSnapshot(q, (snapshot) => {
+    const feed = document.getElementById("feed");
 
-  feed.innerHTML = "";
+    feed.innerHTML = "";
 
-  querySnapshot.forEach((docu) => {
-    const data = docu.data();
+    snapshot.forEach((docu) => {
+      const data = docu.data();
 
-    const fecha = new Date(data.fecha);
-    const fechaTexto = fecha.toLocaleString();
+      const fecha = new Date(data.fecha);
+      const fechaTexto = fecha.toLocaleString();
 
-    feed.innerHTML += `
-      <div class="post">
-        <h4>@${data.user}</h4>
-        <p>${data.texto}</p>
-        <small>${fechaTexto}</small>
-      </div>
-    `;
+      feed.innerHTML += `
+        <div class="post">
+          <h4>@${data.user}</h4>
+          <p>${data.texto}</p>
+          <small>${fechaTexto}</small>
+        </div>
+      `;
+    });
   });
 }
