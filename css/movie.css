@@ -39,3 +39,20 @@ img#movie-poster {
     backdrop-filter: blur(5px);
     border-radius: 5px;
 }
+.informacion-div {
+    color: white;
+    width: 100%;
+    padding: 0px 20px;
+    position: absolute;
+    margin: -68px 0px 0px 0px;
+}
+
+h1#movie-title {
+    margin: 10px 0px;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+}
+
+p#movie-overview {
+    font-family: monospace;
+}
