@@ -3,8 +3,8 @@
 const API_KEY = "446e4bd3b832f95dbc4a0839a483513c";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-const TOTAL_PELICULAS = 5;
-const INTERVALO = 4000;
+const TOTAL_PELICULAS = 20;
+const INTERVALO = 1000;
 
 let peliculas = [];
 let index = 0;
