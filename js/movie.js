@@ -36,7 +36,7 @@ function mostrarPelicula(movie) {
 
   poster.src = `https://image.tmdb.org/t/p/w780${movie.poster_path}`;
 
-  banner.src = `https://image.tmdb.org/t/p/w1080${movie.backdrop_path}`;
+  banner.src = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
 
   overview.textContent = movie.overview;
 }
