@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: black;
+}
+
+.banner {
+  width: 100%;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.degradado-banner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 70vh;
+    background: linear-gradient(0deg, black, transparent);
+}
+.banner-content {
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 2;
+}
