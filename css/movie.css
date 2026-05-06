@@ -75,7 +75,7 @@ div#movie-genres {
     display: flex;
     overflow: auto;
     margin-top: 10px;
-    flex-flow: wrap-reverse;
+    flex-wrap: wrap;
 }
 
 #movie-genres p {
