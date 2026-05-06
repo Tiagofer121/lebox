@@ -48,7 +48,7 @@ img#movie-poster {
 }
 h1#movie-title {
     margin: 10px 0px;
-    font-family: "Fjalla One", sans-serif;
+      font-family: "Nunito", sans-serif;
     font-size: 1.3rem;
 }
 
@@ -57,11 +57,12 @@ p#movie-overview {
 }
 .creacion-director {
     display: flex;
-    font-family: "Fjalla One", sans-serif;
+      font-family: "Nunito", sans-serif;
     gap: 20px;
     color: #ffffff66;
     font-size: .7rem;
     margin: 20px 0px 0px 0px;
+    font-weight: 200;
 }
 
 span#movie-director {
@@ -83,7 +84,7 @@ div#movie-genres {
     text-wrap-mode: nowrap;
     padding: 7px 10px;
     border-radius: 8px;
-    font-family: "Fjalla One", sans-serif;
+      font-family: "Nunito", sans-serif;
     font-size: .5rem;
     letter-spacing: 1px;
 }
