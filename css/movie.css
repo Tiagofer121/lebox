@@ -52,7 +52,11 @@ h1#movie-title {
     font-size: 1.1rem;
     padding:0px 10px 0px 0px;
 }
-
+p#movie-year {
+    color: #ffffffc4;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
 p#movie-overview {
     font-family: monospace;
 }
