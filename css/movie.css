@@ -60,7 +60,7 @@ p#movie-overview {
     font-family: "Fjalla One", sans-serif;
     gap: 20px;
     color: #ffffff66;
-    font-size: .9rem;
+    font-size: .7rem;
     margin: 20px 0px 0px 0px;
 }
 
@@ -84,7 +84,7 @@ div#movie-genres {
     padding: 7px 10px;
     border-radius: 8px;
     font-family: "Fjalla One", sans-serif;
-    font-size: .7rem;
+    font-size: .5rem;
     letter-spacing: 1px;
 }
 
