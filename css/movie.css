@@ -50,7 +50,7 @@ h1#movie-title {
     margin: 10px 0px;
       font-family: "Nunito", sans-serif;
     font-size: 1.1rem;
-    padding:0px 10px;
+    padding:0px 10px 0px 0px;
 }
 
 p#movie-overview {
