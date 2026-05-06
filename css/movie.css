@@ -59,6 +59,7 @@ p#movie-year {
 }
 p#movie-overview {
     font-family: monospace;
+    display:none;
 }
 .creacion-director {
     display: flex;
