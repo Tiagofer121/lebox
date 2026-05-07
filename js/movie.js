@@ -136,8 +136,19 @@ function mostrarPelicula(movie, credits) {
     });
 
   }
+  
+// ⭐ RATING TMDB
+const ratingEl = document.getElementById("rating-span");
+
+// rating de TMDB
+const rating = movie.vote_average;
+
+// mostrar
+ratingEl.textContent = rating.toFixed(1);
 
 }
+
+
 
 // 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
@@ -203,7 +214,7 @@ descripcion.addEventListener("click", () => {
 
   } else {
 
-    descripcion.style.maxHeight = "80px";
+    descripcion.style.maxHeight = "92px";
 
     abierta = false;
 
