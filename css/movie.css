@@ -43,6 +43,7 @@ img#movie-poster {
     width: 100%;
     padding: 0px 20px;
     margin: 28vh 0px 0px 0px;
+    border-bottom: 1px solid #ffffff12; 
 }
 .titulo-poster {
     display: flex;
@@ -62,13 +63,15 @@ h1#movie-title {
 }
 
 p#movie-overview {
-    font-family: "Nunito", sans-serif;
+font-family: "Nunito", sans-serif;
     font-size: .9rem;
     text-align: left;
+    height: 228px;
+    overflow: auto;
 }
 .descripcion {
     width: 100%;
-    margin: 25px 0px 0px 0px;
+    margin: 25px 0px 20px 0px;
     position: relative;
     height: 100%;
     overflow: hidden;
