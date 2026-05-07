@@ -14,6 +14,7 @@ let trailerKey = null;
 
 // 🎬 CARGAR TODO
 async function cargarPelicula(id) {
+
   try {
 
     // 🎬 DATOS PRINCIPALES
@@ -37,21 +38,36 @@ async function cargarPelicula(id) {
 
     const videos = await resVideos.json();
 
+    // 🎯 DIV TRAILER
+    const trailerDiv = document.querySelector(".trailer");
+
     // 🔥 BUSCAR TRAILER
     const trailer = videos.results.find(
-      v => v.type === "Trailer" && v.site === "YouTube"
+      v => v.type === "Trailer" &&
+      v.site === "YouTube"
     );
 
+    // 🎬 SI HAY TRAILER
     if (trailer) {
+
       trailerKey = trailer.key;
+
+    } else {
+
+      // ❌ SI NO HAY TRAILER
+      trailerDiv.remove();
+
     }
 
     // 🧱 MOSTRAR
     mostrarPelicula(movie, credits);
 
   } catch (error) {
+
     console.error("Error:", error);
+
   }
+
 }
 
 // 🧱 MOSTRAR EN HTML
@@ -59,13 +75,20 @@ function mostrarPelicula(movie, credits) {
 
   // 🎯 ELEMENTOS
   const title = document.getElementById("movie-title");
+
   const poster = document.getElementById("movie-poster");
+
   const banner = document.getElementById("movie-banner");
+
   const overview = document.getElementById("movie-overview");
 
   const year = document.getElementById("movie-year");
-  const directorEl = document.getElementById("movie-director");
-  const genresEl = document.getElementById("movie-genres");
+
+  const directorEl =
+    document.getElementById("movie-director");
+
+  const genresEl =
+    document.getElementById("movie-genres");
 
   // 🎬 BÁSICOS
   title.textContent = movie.title;
@@ -113,6 +136,7 @@ function mostrarPelicula(movie, credits) {
     });
 
   }
+
 }
 
 // 🚀 INIT
@@ -121,8 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const movieId = obtenerId();
 
   if (!movieId) {
+
     console.log("No hay ID");
+
     return;
+
   }
 
   // 🎬 CARGAR PELÍCULA
@@ -137,11 +164,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const container =
       document.getElementById("trailer-container");
 
-    // limpiar anterior
+    // 🧹 LIMPIAR
     container.innerHTML = "";
 
-    // crear iframe
-    const iframe = document.createElement("iframe");
+    // 🎬 IFRAME
+    const iframe =
+      document.createElement("iframe");
 
     iframe.src =
       `https://www.youtube.com/embed/${trailerKey}`;
@@ -152,15 +180,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     iframe.allowFullscreen = true;
 
+    // ➕ AGREGAR
     container.appendChild(iframe);
 
   });
-  const descripcion = document.querySelector(".descripcion");
+
+});
+
+// 📖 DESCRIPCIÓN EXPANDIBLE
+const descripcion = document.querySelector(".descripcion");
+
+let abierta = false;
 
 descripcion.addEventListener("click", () => {
 
-  descripcion.classList.toggle("activa");
+  if (!abierta) {
 
-});
+    descripcion.style.maxHeight =
+      descripcion.scrollHeight + "px";
+
+    abierta = true;
+
+  } else {
+
+    descripcion.style.maxHeight = "80px";
+
+    abierta = false;
+
+  }
 
 });
