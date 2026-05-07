@@ -167,6 +167,9 @@ button#trailer-btn {
     color: white;
     backdrop-filter: blur(10px);
     transition: 300ms;
+    width: 120px;
+    height: 42px;
+    font-size: .8rem;
 }
 button#trailer-btn:hover {
     background: white;
