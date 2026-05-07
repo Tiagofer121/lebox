@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #05000a;
+    background-color: #0a0212;
 }
 .media {
     width: 100%;
@@ -29,13 +29,13 @@ img#movie-banner {
     height: 35vh;
     position: absolute;
     z-index: 1;
-    background: linear-gradient(0deg, #05000a 0%, transparent 28%);
+    background: linear-gradient(0deg, #0a0212 0%, transparent 28%);
 }
 
 img#movie-poster {
     width: 127px;
     height: 189px;
-    border: 1px solid #1e1e1e;
+    border: 1px solid #0a02127c;
     border-radius: 5px;
 }
 .informacion-div {
@@ -54,6 +54,11 @@ h1#movie-title {
     font-family: "Nunito", sans-serif;
     font-size: 1.1rem;
     padding: 0px 10px 0px 0px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 p#movie-overview {
@@ -65,14 +70,12 @@ p#movie-overview {
     width: 100%;
     margin: 25px 0px 0px 0px;
     position: relative;
-    height: 101px;
+    height: 100%;
     overflow: hidden;
     transition: 300ms;
+    max-height: 92px;
 }
-.descripcion.activa {
-  height: fit-content;
-  transition: 300ms;
-}
+
 .degradado-descripcion {
     position: absolute;
     z-index: 1;
@@ -80,7 +83,7 @@ p#movie-overview {
     width: 100%;
     height: 60px;
     background: linear-gradient(
-0deg, #05000a -11%, transparent );
+0deg, #0a0212 -11%, transparent );
 }
 .creacion-director {
     display: flex;
@@ -110,7 +113,7 @@ div#movie-genres {
 
 #movie-genres p {
     width: unset;
-    background: #181818;
+    background: #140721;
     margin: 2.5px 5px 2.5px 0px;
     text-wrap-mode: nowrap;
     padding: 7px 10px;
@@ -134,12 +137,12 @@ div#trailer-container {
 .botton-container {
     width: 100%;
     height: 60px;
-    background: linear-gradient(25deg, #071e5f 30%, #a10303f7);
+    background: linear-gradient(25deg, #071e5f2b 30%, #a10303a1);
     display: flex;
     align-items: center;
     padding: 0px;
     justify-content: space-between;
-    margin: 30px 0px 10px;
+    margin: 10px 0px 10px;
     border-radius: 100px;
     padding: 20px;
 }
@@ -147,6 +150,7 @@ div#trailer-container {
 section.trailer {
     width: 100%;
     padding: 0px 20px;
+    margin: 20px 0px 0px 0px;
 }
 p.titulo-trailer {
     font-family: "Nunito", sans-serif
@@ -170,8 +174,10 @@ button#trailer-btn {
     width: 120px;
     height: 42px;
     font-size: .8rem;
+    cursor: pointer;
 }
 button#trailer-btn:hover {
     background: white;
     color: black;
+
 }
