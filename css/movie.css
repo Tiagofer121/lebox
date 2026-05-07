@@ -59,7 +59,7 @@ h1#movie-title {
 p#movie-overview {
     font-family: "Nunito", sans-serif;
     font-size: .9rem;
-    text-align: justify;
+    text-align: left;
 }
 .descripcion {
     width: 100%;
