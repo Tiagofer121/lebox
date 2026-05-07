@@ -155,5 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(iframe);
 
   });
+  const descripcion = document.querySelector(".descripcion");
+
+descripcion.addEventListener("click", () => {
+
+  descripcion.classList.toggle("activa");
+
+});
 
 });
