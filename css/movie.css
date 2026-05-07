@@ -108,7 +108,7 @@ p#movie-overview {
     width: 100%;
     height: 60px;
     background: linear-gradient(
-0deg, #0a0212 19%, transparent );
+0deg, #0a0212 3%, transparent );
     display: flex;
     justify-content: center;
     align-items: end;
