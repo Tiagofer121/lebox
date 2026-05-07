@@ -31,12 +31,27 @@ img#movie-banner {
     z-index: 1;
     background: linear-gradient(0deg, #0a0212 0%, transparent 28%);
 }
-
+.poster-puntuacion {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
 img#movie-poster {
     width: 127px;
     height: 189px;
     border: 1px solid #0a02127c;
     border-radius: 5px;
+}
+p#movie-rating {
+    position: absolute;
+    margin: 5px;
+    background: #0000009e;
+    padding: 2px 7px;
+    border-radius: 100px;
+    font-family: "Nunito", sans-serif;
+    font-size: .7rem;
+    font-weight: 900;
+    backdrop-filter: blur(2px);
 }
 .informacion-div {
     color: white;
