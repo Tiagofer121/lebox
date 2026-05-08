@@ -326,10 +326,12 @@ button#publish-post-btn {
     display: flex;
     justify-content: space-between;
     padding: 0px 0px 0px 0px;
+    align-items: center;
 }
 h3.usuario-post {
     font-family: 'Nunito';
     font-weight: 800;
+    font-size: .8rem;
 }
 p.estrellas {
     color: #522d93;
