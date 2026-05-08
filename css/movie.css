@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
 }
 body{
     background-color: #0a0212;
@@ -158,6 +159,7 @@ iframe {
     height: 200px;
     border-radius: 20px;
     border: none;
+    object-fit: cover;
 }
 
 div#trailer-container {
@@ -168,7 +170,7 @@ div#trailer-container {
 .botton-container {
     width: 100%;
     height: 60px;
-    background: linear-gradient(25deg, transparent 30%, #a10303a1);
+    background: linear-gradient(25deg, transparent 30%, #3803a1a1);
     display: flex;
     align-items: center;
     padding: 0px;
@@ -211,4 +213,102 @@ button#trailer-btn:hover {
     background: white;
     color: black;
 
+}
+
+/* 🔘 BOTONES */
+.tabs-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 0px 20px;
+    margin: 40px 0px 20px 0px;
+    transition: 300ms;
+}
+button.tab-btn.active {
+    color: white;
+    border-color: white;
+    transition: 300ms;
+}
+
+button.tab-btn {
+    color: gray;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #ffffff12;
+    padding: 0px 0px 5px;
+    font-family: 'Nunito';
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+/* 📦 CONTENEDOR */
+.tabs-wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+}
+
+/* 🎞️ SLIDER */
+.tabs-slider {
+  display: flex;
+    width: 100%;
+  transition: transform 300ms ease;
+  padding: 0px 20px;
+}
+
+/* 📄 PÁGINAS */
+.tab-page {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+.create-post {
+    width: 100%;
+    height: 200px;
+    background: #10012c63;
+    padding: 10px;
+    border-radius: 20px;
+}
+textarea#post-text {
+    width: 100%;
+    height: 120px;
+    border: none;
+    color: white;
+    background: #2502656e;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    outline: none;
+}
+.stars-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    font-family: "Nunito", sans-serif;
+    font-size: .8rem;
+    font-weight: 800;
+    margin: 5px 0px;
+    gap: 5px;
+}
+.star.active {
+    opacity: 1;
+    color: #391f67;
+}
+.star {
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1.4rem;
+    color: #ffffff;
+    opacity: .5;
+}
+button#publish-post-btn {
+    background: #17023c;
+    border: none;
+    padding: 10px 30px;
+    height: 45px;
+    border-radius: 20px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
