@@ -23,7 +23,7 @@ async function cargarCasting() {
     castContainer.innerHTML = "";
 
 
-    data.cast.slice(0, 10).forEach(actor => {
+    data.cast.slice(0, 30).forEach(actor => {
 
       // 🎬 CARD PRINCIPAL
       const actorCard = document.createElement("div");
