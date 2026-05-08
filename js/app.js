@@ -78,8 +78,17 @@ window.login = function() {
         // 👇 si no tiene username → mostrar modal
         document.getElementById("usernameModal").style.display = "flex";
       } else {
-        window.location.href = "../inicio.html";
-      }
+
+  const userData = docSnap.data();
+
+  localStorage.setItem(
+    "username",
+    userData.username
+  );
+
+  window.location.href = "../inicio.html";
+
+}
     })
     .catch(err => alert(err.message));
 };
@@ -99,6 +108,11 @@ window.guardarUsername = async function() {
     username: username,
     email: user.email
   });
+
+localStorage.setItem(
+  "username",
+  username
+);
 
   window.location.href = "../inicio.html";
 };
