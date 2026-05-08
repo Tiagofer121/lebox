@@ -4,161 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="css/movie.css">
     <title>Document</title>
 </head>
 <body>
-   
-<section class="seccion-banner-poster">
 
-
-<div class="movie">
-
-  <div class="media">
-    <img id="movie-banner">
-<div class="degradado-banner"></div>
+<!-- SKELETON -->
+<div id="skeleton" class="skeleton-wrapper">
+  <div class="sk-banner"></div>
+  <div class="sk-content">
+    <div class="sk-poster"></div>
+    <div class="sk-lines">
+      <div class="sk-line sk-title"></div>
+      <div class="sk-line sk-short"></div>
+      <div class="sk-line sk-medium"></div>
+      <div class="sk-line sk-long"></div>
+    </div>
   </div>
-<div class="informacion-div">
-    <div class="titulo-poster">
+</div>
+
+<!-- CONTENIDO REAL -->
+<section class="seccion-banner-poster" id="main-content" style="display:none">
+
+  <div class="movie">
+    <div class="media">
+      <img id="movie-banner">
+      <div class="degradado-banner"></div>
+    </div>
+
+    <div class="informacion-div">
+      <div class="titulo-poster">
         <div class="informacion">
           <h1 id="movie-title"></h1>
           <div class="creacion-director">
             <p id="movie-year"></p>
             <p class="circulo">●</p>
-            <p>Dirigida por <br> <span id="movie-director"></span></p>
+            <p id="movie-runtime"></p>
+            <p class="circulo">●</p>
+            <p>Dir. <span id="movie-director"></span></p>
           </div>
           <div id="movie-genres"></div>
+
+          <!-- RATINGS -->
+          <div class="ratings-row">
+            <div class="rating-chip tmdb-chip">
+              <span class="rating-label">TMDB</span>
+              <span id="movie-rating" class="rating-value"></span>
+            </div>
+            <div class="rating-chip comunidad-chip">
+              <span class="rating-label">Comunidad</span>
+              <span id="community-rating" class="rating-value">—</span>
+            </div>
+            <div class="rating-chip turating-chip" id="tu-rating-chip" style="display:none">
+              <span class="rating-label">Tu nota</span>
+              <span id="tu-rating" class="rating-value"></span>
+            </div>
           </div>
-          <div class="poster-puntuacion">
-          <p id="movie-rating">TMDB | <span id="rating-span"></span></p>
-        <img id="movie-poster">
+
+          <!-- STREAMING -->
+          <div id="streaming-section" class="streaming-section" style="display:none">
+            <p class="streaming-label">Disponible en</p>
+            <div id="streaming-providers" class="streaming-providers"></div>
+          </div>
+
         </div>
+        <div class="poster-puntuacion">
+          <img id="movie-poster">
+          <div class="watchlist-btns">
+            <button id="btn-quiero-ver" class="wl-btn">👁 Quiero verla</button>
+            <button id="btn-ya-vi" class="wl-btn">✓ Ya la vi</button>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="Resumen">Resumen</h5>
+      <div class="descripcion">
+        <div class="degradado-descripcion">
+          <p class="leer-mas-btn">Leer más ↓</p>
+        </div>
+        <p id="movie-overview"></p>
+      </div>
     </div>
-    <h5 class="Resumen">Resumen</h5>
-    <div class="descripcion">
-      <div class="degradado-descripcion"><p class="puntos">...</p></div>
-  <p id="movie-overview"></p>
-  </div>
-</div>
-</div>
-
-<section class="trailer">
-  <div class="botton-container">
-    <p class="titulo-trailer">Sumérgete en la historia</p>
-<button id="trailer-btn">Ver trailer</button>
-  </div>
-
-<div id="trailer-container"></div>
-</section>
-
-<section class="post-casting">
-
-
-<!-- 🔘 BOTONES -->
-<div class="tabs-buttons">
-
-  <button class="tab-btn active">
-    Posts
-  </button>
-
-  <button class="tab-btn">
-    Casting
-  </button>
-
-  <button class="tab-btn">
-    Reviews
-  </button>
-
-</div>
-
-<!-- 📦 CONTENEDOR -->
-<div class="tabs-wrapper">
-
-  <!-- 🎞️ SLIDER -->
-  <div class="tabs-slider">
-
-    <!-- 💬 POSTS -->
-    <div class="tab-page">
-
-      
-<div class="posts-container">
-
-  <!-- ✍️ CREAR POST -->
-  <div class="create-post">
-
-    <textarea id="post-text" placeholder="Comparte tu opinión..."></textarea>
-
-    <div class="stars-container">
-
-
-    <div class="stars-container">
-
-  <span class="star" data-value="1">★</span>
-  <span class="star" data-value="2">★</span>
-  <span class="star" data-value="3">★</span>
-  <span class="star" data-value="4">★</span>
-  <span class="star" data-value="5">★</span>
-  <span class="star" data-value="6">★</span>
-  <span class="star" data-value="7">★</span>
-
-    </div>
-    <div class="botones-mensaje">
-    <button id="publish-post-btn"> Publicar</button>
-    <button id="spoiler-btn" class="spoiler-btn">⚠</button>
-    </div>
-    </div>
-
-
   </div>
 
-  <!-- 📰 POSTS -->
-  <div class="community-posts">
+  <!-- TRAILER -->
+  <section class="trailer">
+    <div class="botton-container">
+      <p class="titulo-trailer">Sumérgete en la historia</p>
+      <button id="trailer-btn">▶ Ver trailer</button>
+    </div>
+    <div id="trailer-container"></div>
+  </section>
 
-
-  </div>
-
-</div>
-
+  <!-- TABS -->
+  <section class="post-casting">
+    <div class="tabs-buttons">
+      <button class="tab-btn active" data-tab="0">Posts <span class="tab-count" id="count-posts"></span></button>
+      <button class="tab-btn" data-tab="1">Casting</button>
+      <button class="tab-btn" data-tab="2">Reviews</button>
     </div>
 
-    <!-- 🎭 CASTING -->
-    <div class="tab-page">
+    <!-- POSTS -->
+    <div class="tab-page" id="tab-0">
+      <div class="posts-container">
+        <div class="create-post">
+          <textarea id="post-text" placeholder="Comparte tu opinión..."></textarea>
+          <div class="stars-container">
+            <div class="stars-inner">
+              <span class="star" data-value="1">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="5">★</span>
+              <span class="star" data-value="6">★</span>
+              <span class="star" data-value="7">★</span>
+            </div>
+            <div class="botones-mensaje">
+              <button id="publish-post-btn">Publicar</button>
+              <button id="spoiler-btn" class="spoiler-btn">⚠</button>
+              <button id="share-btn" class="share-btn" title="Compartir">🔗</button>
+            </div>
+          </div>
+        </div>
+        <div class="community-posts"></div>
+      </div>
+    </div>
 
+    <!-- CASTING -->
+    <div class="tab-page" id="tab-1" style="display:none">
       <div class="cast-container"></div>
-
     </div>
 
+    <!-- REVIEWS -->
+    <div class="tab-page" id="tab-2" style="display:none">
+      <div class="reviews-empty">
+        <p>Próximamente 🎬</p>
+      </div>
     </div>
+  </section>
 
-  </div>
-
-</div>
+  <!-- SIMILARES -->
+  <section class="similares-section" id="similares-section" style="display:none">
+    <h2 class="similares-titulo">Te puede gustar</h2>
+    <div class="similares-scroll" id="similares-container"></div>
+  </section>
 
 </section>
-
-</section>  
-
 
     <script type="module" src="js/univers.js"></script>
     <script type="module" src="js/movie.js"></script>
     <script type="module" src="js/credits.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ⭐ REVIEWS -->
-    <div class="tab-page">
-
-
-
-      
