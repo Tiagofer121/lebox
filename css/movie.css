@@ -374,7 +374,6 @@ p.estrellas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
     min-height: 70px;
     border-bottom: 1px solid #ffffff12;
 }
