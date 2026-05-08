@@ -256,7 +256,7 @@ const q = query(
 }
 
       postDiv.innerHTML = `
-        <div class="div-post-user-estrellas"><h3 class="usuario-post">${post.user}</h3><p class="estrellas">${starsHTML}</p></div>
+        <div class="div-post-user-estrellas"><h3 class="usuario-post">@${post.user}</h3><p class="estrellas">${starsHTML}</p></div>
 
         <p class="Mensjae-post">${post.texto}</p>
 
