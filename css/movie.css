@@ -246,7 +246,7 @@ button.tab-btn {
 .tabs-wrapper {
   width: 100%;
   overflow: hidden;
-  height: 300px;
+  height: fit-content;
 }
 
 /* 🎞️ SLIDER */
@@ -254,7 +254,7 @@ button.tab-btn {
   display: flex;
     width: 100%;
   transition: transform 300ms ease;
-  padding: 0px 20px;
+  padding: 0px 20px 20px;
 }
 
 /* 📄 PÁGINAS */
@@ -311,4 +311,33 @@ button#publish-post-btn {
     font-family: "Nunito", sans-serif;
     font-weight: 900;
     letter-spacing: 1px;
+}
+.post {
+    margin: 10px 0px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #0c011c;
+    padding: 15px;
+    border-radius: 20px;
+}
+.div-post-user-estrellas {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 0px 0px 0px;
+}
+h3.usuario-post {
+    font-family: 'Nunito';
+    font-weight: 800;
+}
+p.estrellas {
+    color: #522d93;
+    font-size: 1.1rem;
+}
+p.Mensjae-post {
+    margin: 10px 0px 0px 0px;
+    font-family: 'Nunito';
+    border-top: 1px solid #ffffff12;
+    padding: 10px 0px 0px 0px;
 }
