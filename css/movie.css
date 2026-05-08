@@ -374,17 +374,16 @@ p.estrellas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #0c011c;
     padding: 10px;
-    border-radius: 20px;
     min-height: 70px;
+    border-bottom: 1px solid #ffffff12;
 }
 
 .actor-card img {
     height: 60px;
     object-fit: cover;
     width: 60px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .cast-container {
@@ -403,8 +402,8 @@ p.estrellas {
 }
 
 .actor-info p {
-    font-family: "Nunito", sans-serif
-    ;font-size: 1.1rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
     font-weight: 800;
 }
 
