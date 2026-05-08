@@ -230,9 +230,9 @@ div#movie-genres {
     border-radius: 12px;
     min-width: 55px;
 }
-.tmdb-chip    { background: #0d253f; border: 1px solid #01b4e4; }
-.comunidad-chip { background: #1a0535; border: 1px solid #7c3aed; }
-.turating-chip  { background: #0a2010; border: 1px solid #22c55e; }
+.tmdb-chip       { background: #0d253f; border: 1px solid #01b4e4; }
+.comunidad-chip  { background: #1a0535; border: 1px solid #7c3aed; }
+.turating-chip   { background: #0a2010; border: 1px solid #22c55e; }
 .rating-label {
     font-family: "Nunito", sans-serif;
     font-size: .45rem;
@@ -277,7 +277,7 @@ div#movie-genres {
 }
 
 /* =====================
-   WATCHLIST BUTTONS
+   WATCHLIST
    ===================== */
 .watchlist-btns {
     display: flex;
@@ -300,12 +300,12 @@ div#movie-genres {
     backdrop-filter: blur(5px);
     text-align: center;
 }
-.wl-btn:hover  { background: #ffffff25; }
+.wl-btn:hover         { background: #ffffff25; }
 .wl-btn.activo-quiero { background: #7c3aed; border-color: #9b6fff; }
 .wl-btn.activo-visto  { background: #15803d; border-color: #22c55e; }
 
 /* =====================
-   TRAILER
+   TRAILER — igual al original
    ===================== */
 iframe {
     width: 100%;
@@ -321,13 +321,15 @@ div#trailer-container {
 }
 .botton-container {
     width: 100%;
+    height: 60px;
     background: linear-gradient(25deg, transparent 30%, #3803a1a1);
     display: flex;
     align-items: center;
+    padding: 0px;
     justify-content: space-between;
-    margin: 10px 0px;
+    margin: 10px 0px 10px;
     border-radius: 100px;
-    padding: 14px 20px;
+    padding: 20px;
 }
 section.trailer {
     width: 100%;
@@ -345,6 +347,8 @@ button#trailer-btn {
     border: none;
     border-radius: 100px;
     font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    margin: 0px -10px 0px 0px;
     font-weight: 900;
     background: #ffffff40;
     color: white;
@@ -366,6 +370,7 @@ button#trailer-btn:hover { background: white; color: black; }
     width: 100%;
     padding: 0px 20px;
     margin: 40px 0px 20px 0px;
+    transition: 300ms;
 }
 button.tab-btn {
     color: gray;
@@ -460,24 +465,23 @@ textarea#post-text {
 button#publish-post-btn {
     background: #17023c;
     border: none;
-    padding: 10px 18px;
-    height: 40px;
+    padding: 10px 30px;
+    height: 45px;
     border-radius: 20px;
     font-family: "Nunito", sans-serif;
     font-weight: 900;
-    font-size: .75rem;
     letter-spacing: 1px;
     cursor: pointer;
     transition: 300ms;
 }
 button#publish-post-btn:hover { background: #2d0570; }
 .spoiler-btn {
-    width: 40px;
-    height: 40px;
+    width: 45px;
     background: #ff00002e;
     border: none;
+    height: 45px;
     border-radius: 100%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -485,20 +489,6 @@ button#publish-post-btn:hover { background: #2d0570; }
     transition: 300ms;
 }
 .activo-boton-spoiler { background: #ff0000; }
-.share-btn {
-    width: 40px;
-    height: 40px;
-    background: #ffffff15;
-    border: none;
-    border-radius: 100%;
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 300ms;
-}
-.share-btn:hover { background: #ffffff30; }
 
 /* TOAST */
 .toast {
@@ -539,9 +529,8 @@ h3.usuario-post {
     font-size: .8rem;
 }
 p.estrellas {
-    color: #9b6fff;
-    font-size: 1rem;
-    letter-spacing: 2px;
+    color: #522d93;
+    font-size: 1.1rem;
 }
 .post-text {
     margin: 10px 0px 0px 0px;
@@ -566,9 +555,9 @@ p.estrellas {
     padding: 5px 0;
 }
 .actor-card img {
-    height: 58px;
+    height: 60px;
     object-fit: cover;
-    width: 58px;
+    width: 60px;
     border-radius: 10px;
 }
 .cast-container {
@@ -579,12 +568,12 @@ p.estrellas {
 .actor-info {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
     text-align: end;
 }
 .actor-info p {
     font-family: "Nunito", sans-serif;
-    font-size: .9rem;
+    font-size: 1rem;
     font-weight: 800;
 }
 .actor-info span {
@@ -595,7 +584,7 @@ p.estrellas {
 }
 
 /* =====================
-   REVIEWS EMPTY
+   REVIEWS
    ===================== */
 .reviews-empty {
     text-align: center;
