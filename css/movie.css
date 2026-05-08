@@ -178,6 +178,7 @@ div#trailer-container {
     margin: 10px 0px 10px;
     border-radius: 100px;
     padding: 20px;
+
 }
 
 section.trailer {
@@ -254,13 +255,14 @@ button.tab-btn {
   display: flex;
     width: 100%;
   transition: transform 300ms ease;
-  padding: 0px 20px 20px;
+  padding: 0px 0px 20px;
 }
 
 /* 📄 PÁGINAS */
 .tab-page {
   min-width: 100%;
   flex-shrink: 0;
+  padding: 0px 20px;
 }
 .create-post {
     width: 100%;
@@ -283,7 +285,7 @@ textarea#post-text {
 }
 .stars-container {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     width: 100%;
     font-family: "Nunito", sans-serif;
     font-size: .8rem;
@@ -337,9 +339,78 @@ p.estrellas {
     color: #522d93;
     font-size: 1.1rem;
 }
-p.Mensjae-post {
+.post-text {
     margin: 10px 0px 0px 0px;
     font-family: 'Nunito';
     border-top: 1px solid #ffffff12;
     padding: 10px 0px 0px 0px;
+}
+.botones-mensaje {
+    display: flex;
+    gap: 5px;
+}
+
+.spoiler-btn {
+    width: 45px;
+    background: #ff00002e;
+    border: none;
+    height: 45px;
+    border-radius: 100%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.activo-boton-spoiler {
+    background: #ff0000;
+}
+.actor-card {
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0c011c;
+    padding: 10px;
+    border-radius: 20px;
+    min-height: 70px;
+}
+
+.actor-card img {
+    height: 60px;
+    object-fit: cover;
+    width: 60px;
+    border-radius: 20px;
+}
+
+.cast-container {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    overflow: auto;
+}
+
+.actor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: end;
+}
+
+.actor-info p {
+    font-family: "Nunito", sans-serif
+    ;font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.actor-info span {
+    font-family: "Nunito", sans-serif;
+    font-size: .7rem;
+    font-weight: 500;
+    color: #ffffffc4;
 }
