@@ -199,6 +199,20 @@ function mostrarPelicula(movie, credits) {
 }
 
 
+// ⏱ TIEMPO RELATIVO
+function tiempoRelativo(fecha) {
+  const diff = Date.now() - fecha;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1)  return "ahora mismo";
+  if (mins < 60) return `hace ${mins}m`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24)  return `hace ${hrs}h`;
+  const dias = Math.floor(hrs / 24);
+  if (dias < 7)  return `hace ${dias}d`;
+  return new Date(fecha).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+}
+
+
 // 💬 CARGAR POSTS
 function cargarPosts() {
 
@@ -213,13 +227,11 @@ function cargarPosts() {
     collection(db, "posts");
 
   // 🎬 QUERY
-const q = query(
-  postsRef,
-
-  where("movieId", "==", movieId),
-
-  orderBy("fecha", "desc")
-);
+  const q = query(
+    postsRef,
+    where("movieId", "==", movieId),
+    orderBy("fecha", "desc")
+  );
 
   // 🔥 TIEMPO REAL
   onSnapshot(q, (snapshot) => {
@@ -227,94 +239,85 @@ const q = query(
     // 🧹 LIMPIAR
     postsContainer.innerHTML = "";
 
+    if (snapshot.empty) {
+      postsContainer.innerHTML = `
+        <div class="empty-posts">
+          <p class="empty-icon">🎬</p>
+          <p class="empty-text">Todavía no hay posts para esta película.<br>¡Sé el primero en opinar!</p>
+        </div>
+      `;
+      return;
+    }
+
     // 🔁 POSTS
+    snapshot.docs.forEach((doc, idx) => {
 
+      const post = doc.data();
 
-    snapshot.docs.forEach(doc => {
-
-      const post =
-        doc.data();
-
+      // ⏱ TIEMPO
+      const tiempoTexto = tiempoRelativo(post.fecha);
 
       // ⭐ ESTRELLAS
       let starsHTML = "";
-
       for (let i = 1; i <= 7; i++) {
-
-        if (i <= post.rating) {
-
-          starsHTML += "★";
-
-        }
-
+        starsHTML += `<span class="${i <= (post.rating || 0) ? "star-filled" : "star-empty"}">★</span>`;
       }
 
+      // 🏷️ SPOILER BADGE
+      const spoilerBadge = post.spoiler
+        ? `<span class="spoiler-tag">⚠ Spoiler</span>` : "";
 
-      // ⚠ TEXTO
-      let textoPost =
-        post.texto;
+      // 🎬 MOVIE PILL — solo visual, sin link
+      const moviePill = post.moviePoster
+        ? `<div class="movie-pill movie-pill--static">
+            <img src="https://image.tmdb.org/t/p/w92${post.moviePoster}" alt="${post.movieTitle}">
+            <div class="pill-info">
+              <p class="pill-label">Película</p>
+              <p class="pill-title">${post.movieTitle}</p>
+            </div>
+           </div>` : "";
 
+      // ⭐ RATING BADGE
+      const ratingBadge = post.rating > 0
+        ? `<div class="post-rating-badge">
+             <span class="post-rating-num">${post.rating}</span>
+             <span class="post-rating-max">/7</span>
+           </div>` : "";
 
-      // 🚨 SPOILER
-      if (post.spoiler) {
-
-        textoPost =
-          "⚠ Spoiler — tocar para revelar";
-
-      }
-
-
-      // 👁 ESTADO
-      let isHidden =
-        post.spoiler;
-
+      // 👁 TEXTO / SPOILER
+      const textoDisplay = post.spoiler ? "⚠ Tocar para revelar el spoiler" : post.texto;
+      const spoilerClass = post.spoiler ? "is-spoiler" : "";
 
       // 🧱 POST
-      const postDiv =
-        document.createElement("div");
-
+      const postDiv = document.createElement("div");
       postDiv.classList.add("post");
+      postDiv.style.animationDelay = `${idx * 35}ms`;
 
-
-      // 🔥 HTML
       postDiv.innerHTML = `
-
-        <div class="div-post-user-estrellas"><h3 class="usuario-post">@${post.user}</h3><p class="estrellas">${starsHTML}</p></div>
-
-
-        <p class="post-text">
-          ${textoPost}
-        </p>
-
+        <div class="post-header">
+          <div class="post-avatar">${post.user?.charAt(0).toUpperCase() || "?"}</div>
+          <div class="post-meta">
+            <p class="post-user">@${post.user} ${spoilerBadge}</p>
+            <p class="post-fecha">${tiempoTexto}</p>
+          </div>
+          ${ratingBadge}
+        </div>
+        ${moviePill}
+        <div class="post-stars">${starsHTML}</div>
+        <p class="post-text ${spoilerClass}">${textoDisplay}</p>
       `;
 
-
-      // 👁 REVELAR
+      // 👁 REVELAR SPOILER
       if (post.spoiler) {
-
-        const postText =
-          postDiv.querySelector(".post-text");
-
-        postText.addEventListener("click", () => {
-
-          if (isHidden) {
-
-            postText.textContent =
-              post.texto;
-
-            isHidden = false;
-
-          }
-
+        const textEl = postDiv.querySelector(".post-text");
+        textEl.addEventListener("click", () => {
+          textEl.textContent = post.texto;
+          textEl.classList.remove("is-spoiler");
         });
-
       }
 
-
       // ➕ AGREGAR
-      postsContainer.appendChild(
-        postDiv
-      );
+      postsContainer.appendChild(postDiv);
 
     });
 
