@@ -1,4 +1,3 @@
-
 // 🔥 FIREBASE
 
 import { db } from "./firebase.js";
@@ -226,12 +225,8 @@ function cargarPosts() {
   const postsRef =
     collection(db, "posts");
 
-  // 🎬 QUERY
-  const q = query(
-    postsRef,
-    where("movieId", "==", movieId),
-    orderBy("fecha", "desc")
-  );
+  // 🎬 QUERY — sin where para atrapar tanto string como número
+  const q = query(postsRef, orderBy("fecha", "desc"));
 
   // 🔥 TIEMPO REAL
   onSnapshot(q, (snapshot) => {
@@ -239,7 +234,12 @@ function cargarPosts() {
     // 🧹 LIMPIAR
     postsContainer.innerHTML = "";
 
-    if (snapshot.empty) {
+    // 🎯 FILTRAR — compara como string para cubrir movieId guardado como número o string
+    const docs = snapshot.docs.filter(doc =>
+      String(doc.data().movieId) === String(movieId)
+    );
+
+    if (docs.length === 0) {
       postsContainer.innerHTML = `
         <div class="empty-posts">
           <p class="empty-icon">🎬</p>
@@ -250,7 +250,7 @@ function cargarPosts() {
     }
 
     // 🔁 POSTS
-    snapshot.docs.forEach((doc, idx) => {
+    docs.forEach((doc, idx) => {
 
       const post = doc.data();
 
