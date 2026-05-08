@@ -14,7 +14,7 @@ import {
 // ⏱ TIEMPO MÍNIMO DEL SKELETON (en milisegundos)
 // Subilo si la API tarda más, bajalo si querés que sea más rápido
 // ============================================================
-const LOADING_MIN_MS = 1800;
+const LOADING_MIN_MS = 500;
 
 // OBTENER ID
 function obtenerId() {
