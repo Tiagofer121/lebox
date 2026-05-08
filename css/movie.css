@@ -27,6 +27,7 @@ body{
     gap: 15px;
     padding: 20px;
     margin-top: -40px;
+    flex-direction: row-reverse;
 }
 .sk-poster {
     width: 127px;
