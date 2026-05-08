@@ -247,8 +247,9 @@ button#trailer-btn:hover {
     position: sticky;
     top: 0px;
     height: 75px;
-    background: #0a0212;
+    background: linear-gradient(0deg, #0a0212ba, transparent);
     align-items: self-end;
+    backdrop-filter: blur(10px);
 }
 button.tab-btn.active {
     color: white;
