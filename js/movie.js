@@ -228,10 +228,46 @@ const q = query(
     postsContainer.innerHTML = "";
 
     // 🔁 POSTS
+
+
     snapshot.docs.forEach(doc => {
 
       const post =
         doc.data();
+
+
+      // ⭐ ESTRELLAS
+      let starsHTML = "";
+
+      for (let i = 1; i <= 7; i++) {
+
+        if (i <= post.rating) {
+
+          starsHTML += "★";
+
+        }
+
+      }
+
+
+      // ⚠ TEXTO
+      let textoPost =
+        post.texto;
+
+
+      // 🚨 SPOILER
+      if (post.spoiler) {
+
+        textoPost =
+          "⚠ Spoiler — tocar para revelar";
+
+      }
+
+
+      // 👁 ESTADO
+      let isHidden =
+        post.spoiler;
+
 
       // 🧱 POST
       const postDiv =
@@ -239,28 +275,41 @@ const q = query(
 
       postDiv.classList.add("post");
 
-      let starsHTML = "";
 
-      for (let i = 1; i <= 7; i++) {
-
-  if (i <= post.rating) {
-
-    starsHTML += "★";
-
-  } else {
-
-    starsHTML += "☆";
-
-  }
-
-}
-
+      // 🔥 HTML
       postDiv.innerHTML = `
+
         <div class="div-post-user-estrellas"><h3 class="usuario-post">@${post.user}</h3><p class="estrellas">${starsHTML}</p></div>
 
-        <p class="Mensjae-post">${post.texto}</p>
+
+        <p class="post-text">
+          ${textoPost}
+        </p>
 
       `;
+
+
+      // 👁 REVELAR
+      if (post.spoiler) {
+
+        const postText =
+          postDiv.querySelector(".post-text");
+
+        postText.addEventListener("click", () => {
+
+          if (isHidden) {
+
+            postText.textContent =
+              post.texto;
+
+            isHidden = false;
+
+          }
+
+        });
+
+      }
+
 
       // ➕ AGREGAR
       postsContainer.appendChild(
@@ -505,26 +554,22 @@ document.addEventListener(
 
           // 🚀 FIREBASE
           await addDoc(
-            collection(
-              db,
-              "posts"
-            ),
+            collection(db, "posts"),
             {
 
               texto: texto,
 
-              rating:
-                selectedRating,
+              rating: selectedRating,
+
+              spoiler: isSpoiler,
 
               user: username,
 
               movieId: movieId,
 
-              movieTitle:
-                currentMovie.title,
+              movieTitle: currentMovie.title,
 
-              moviePoster:
-                currentMovie.poster_path,
+              moviePoster: currentMovie.poster_path,
 
               fecha: Date.now()
 
@@ -557,3 +602,21 @@ document.addEventListener(
 
   }
 );
+
+// ⚠ SPOILER
+const spoilerBtn =
+  document.getElementById("spoiler-btn");
+
+let isSpoiler = false;
+
+
+// 🚀 CLICK
+spoilerBtn.addEventListener("click", () => {
+
+  // 🔄 CAMBIAR ESTADO
+  isSpoiler = !isSpoiler;
+
+  // 🎨 ACTIVE
+  spoilerBtn.classList.toggle("activo-boton-spoiler");
+
+});
