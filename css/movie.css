@@ -292,12 +292,13 @@ textarea#post-text {
     height: 120px;
     border: none;
     color: white;
-    background: #2502656e;
+    background: rgba(255, 255, 255, 0.04);
     padding: 10px;
     border-radius: 20px;
     font-family: "Nunito", sans-serif;
     font-size: 1rem;
     outline: none;
+    border: 1px solid rgba(255,255,255,0.07);
 }
 .stars-container {
     display: flex;
@@ -332,38 +333,119 @@ button#publish-post-btn {
     cursor: pointer;
 }
 .post {
-    margin: 10px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: #0c011c;
-    padding: 15px;
-    border-radius: 20px;
+  background: #0c011c;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 10px 0;
+  animation: fadeUp 300ms ease both;
 }
-.div-post-user-estrellas {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 0px 0px 0px;
-    align-items: center;
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-h3.usuario-post {
-    font-family: 'Nunito';
-    font-weight: 800;
-    font-size: .8rem;
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-p.estrellas {
-    color: #522d93;
-    font-size: 1.1rem;
+
+.post-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b0d8a, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .7rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  font-family: "Nunito", sans-serif;
 }
+
+.post-meta { flex: 1; min-width: 0; }
+.post-user { font-size: .78rem; font-weight: 800; font-family: "Nunito", sans-serif; }
+.post-fecha { font-size: .58rem; color: rgba(255,255,255,0.45); margin-top: 1px; font-family: "Nunito", sans-serif; }
+
+.post-rating-badge {
+  background: rgba(124,58,237,0.2);
+  border: 1px solid rgba(124,58,237,0.35);
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+.post-rating-num { font-size: .85rem; font-weight: 900; color: #9b6fff; line-height: 1; font-family: "Nunito", sans-serif; }
+.post-rating-max { font-size: .45rem; color: rgba(255,255,255,0.45); font-weight: 700; font-family: "Nunito", sans-serif; }
+
+/* Movie pill — solo visual, sin hover/cursor */
+.movie-pill--static {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 6px 10px;
+  pointer-events: none;
+}
+.movie-pill--static img { width: 26px; height: 38px; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
+.pill-info { flex: 1; min-width: 0; }
+.pill-label { font-size: .48rem; font-weight: 700; color: #9b6fff; text-transform: uppercase; letter-spacing: 1px; font-family: "Nunito", sans-serif; }
+.pill-title { font-size: .75rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "Nunito", sans-serif; }
+
+.post-stars { display: flex; gap: 2px; font-size: .85rem; }
+.star-filled { color: #9b6fff; }
+.star-empty  { color: rgba(255,255,255,0.15); }
+
 .post-text {
-    margin: 10px 0px 0px 0px;
-    font-family: 'Nunito';
-    border-top: 1px solid #ffffff12;
-    padding: 10px 0px 0px 0px;
-    font-size: .85rem;
-    line-height: 1.4;
-    color: #ffffffc4;
+  font-size: .88rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.75);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 10px;
+  font-family: "Nunito", sans-serif;
 }
+.post-text.is-spoiler {
+  cursor: pointer;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+  user-select: none;
+}
+.post-text.is-spoiler:hover { color: rgba(255,255,255,0.6); }
+
+.spoiler-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(229,62,62,0.15);
+  border: 1px solid rgba(229,62,62,0.3);
+  color: #fc8181;
+  font-size: .5rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 100px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin-left: 5px;
+  vertical-align: middle;
+  font-family: "Nunito", sans-serif;
+}
+
+.empty-posts {
+  text-align: center;
+  padding: 40px 20px;
+}
+.empty-posts .empty-icon { font-size: 2rem; margin-bottom: 10px; }
+.empty-posts .empty-text { font-size: .82rem; color: rgba(255,255,255,0.45); line-height: 1.6; font-family: "Nunito", sans-serif; }
 .botones-mensaje {
     display: flex;
     gap: 5px;
