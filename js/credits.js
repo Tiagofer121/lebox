@@ -34,7 +34,7 @@ async function cargarCasting() {
       const img = document.createElement("img");
       img.src = actor.profile_path
         ? `https://image.tmdb.org/t/p/w185${actor.profile_path}`
-        : "https://via.placeholder.com/185x278?text=No+Image";
+        : "../assets/placeholder.png";
 
 
       // 🧱 CONTENEDOR INFO
