@@ -123,6 +123,8 @@ body {
   z-index: 200;
   box-shadow: 0 16px 40px rgba(0,0,0,0.6);
   animation: dropIn 180ms ease both;
+  height: 400px;
+  overflow: auto;
 }
 
 @keyframes dropIn {
@@ -608,3 +610,18 @@ textarea#postText:focus { border-color: rgba(124,58,237,0.5); }
   pointer-events: none;
 }
 .toast.visible { transform: translateX(-50%) translateY(0); }
+
+/* ⭐ SHAKE — sin calificación */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+.stars-row.shake {
+  animation: shake 450ms ease;
+}
+.stars-row.shake .star {
+  color: #fc8181 !important;
+}
