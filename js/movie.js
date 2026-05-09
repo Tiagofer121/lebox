@@ -1,3 +1,4 @@
+
 // 🔥 FIREBASE
 
 import { db } from "./firebase.js";
@@ -195,6 +196,8 @@ function mostrarPelicula(movie, credits) {
   ratingEl.textContent =
     `   ${movie.vote_average.toFixed(1)}/10`;
 
+
+    hideLoader();
 }
 
 
@@ -330,6 +333,9 @@ function cargarPosts() {
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+
+    showLoader();
+
 
     // ❌ SIN ID
     if (!movieId) return;
@@ -535,9 +541,13 @@ document.addEventListener(
         // ❌ VALIDACIONES
         if (!texto) return;
 
-        if (
-          selectedRating === 0
-        ) return;
+        if (selectedRating === 0) {
+          // 🌟 SHAKE en las estrellas para avisar
+          const starsContainer = document.querySelector(".stars-container");
+          starsContainer.classList.add("shake");
+          setTimeout(() => starsContainer.classList.remove("shake"), 500);
+          return;
+        }
 
         try {
 
