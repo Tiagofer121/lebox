@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/loader.css">
+
     <title>Document</title>
 </head>
 <body>
-   
+  
+  <div id="loader" class="loader">
+<div class="loader-triangle-9">
+    <div></div>
+    <div></div>
+</div>
+</div>
+
+
+
+
+
 <section class="seccion-banner-poster">
 
 <div class="movie">
@@ -56,7 +70,6 @@
   <div class="tabs-buttons">
     <button class="tab-btn active" data-tab="0">Posts</button>
     <button class="tab-btn" data-tab="1">Casting</button>
-    <button class="tab-btn" data-tab="2">Reviews</button>
   </div>
 
   <!-- 💬 POSTS -->
@@ -98,6 +111,7 @@
 </section>  
 
     <script type="module" src="js/univers.js"></script>
+      <script src="js/loader.js"></script>
     <script type="module" src="js/movie.js"></script>
     <script type="module" src="js/credits.js"></script>
 </body>
