@@ -45,6 +45,9 @@ let searchTimeout  = null;
 // AUTH
 // ============================================================
 onAuthStateChanged(auth, async (user) => {
+
+  showLoader();
+  
   if (!user) {
     window.location.href = "../index.html";
     return;
@@ -177,7 +180,7 @@ async function buscarPeliculas(query) {
 
     searchRes.innerHTML = "";
 
-    data.results.slice(0, 6).forEach(movie => {
+    data.results.slice(0, 15).forEach(movie => {
       const year  = movie.release_date ? movie.release_date.split("-")[0] : "—";
       const score = movie.vote_average ? movie.vote_average.toFixed(1) : null;
 
@@ -246,8 +249,15 @@ window.crearPost = async function () {
   const texto      = document.getElementById("postText").value.trim();
   const publishBtn = document.querySelector(".publish-btn");
 
-  if (!texto)    return mostrarToast("Escribí algo primero 📝", "warn");
+  if (!texto)    return mostrarToast("Escribí algo primero ", "warn");
   if (!username) return mostrarToast("Cargando usuario...", "warn");
+
+  if (selectedRating === 0) {
+    const starsRow = document.querySelector(".stars-row");
+    starsRow.classList.add("shake");
+    setTimeout(() => starsRow.classList.remove("shake"), 500);
+    return;
+  }
 
   publishBtn.classList.add("loading");
 
@@ -317,6 +327,7 @@ function aplicarFiltro() {
     el.style.animationDelay = `${idx * 35}ms`;
     feed.appendChild(el);
   });
+  hideLoader();
 }
 
 function crearPostEl(data) {
